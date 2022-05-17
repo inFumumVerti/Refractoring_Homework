@@ -3,6 +3,7 @@ package fowler;
 class Rental {
     private Movie movie;
     private int daysRented;
+    private Price price;
 
 
     public Rental(Movie newmovie, int newdaysRented) {
@@ -23,11 +24,7 @@ class Rental {
     }
 
 
-    public int getFrequentRenterPoints(){
-        if ((getMovie().getPriceCode() == Movie.NEW_RELEASE) &&
-                getDaysRented() > 1)
-            return 2;
-        else
-            return 1;
+    int getFrequentRenterPoints(int daysRented) {
+        return price.getFrequentRenterPoints(daysRented);
     }
 }
